@@ -1,6 +1,5 @@
-/// <reference types="node" />
-
-import { Writable, Stream } from 'stream';
+declare interface Writable { }
+declare interface Stream { }
 
 export const enum RelationshipType {
 	None = 0,
@@ -1088,6 +1087,11 @@ export interface Xlsx {
 	writeFile(path: string): Promise<void>;
 
 	/**
+	 * write to a buffer
+	 */
+	writeBuffer(): Promise<void>;
+
+	/**
 	 * write to a stream
 	 */
 	write(stream: Stream): Promise<void>;
@@ -1122,6 +1126,12 @@ export interface Csv {
 	 * write to a file
 	 */
 	writeFile(path: string, options?: Partial<CsvWriteOptions>): Promise<void>;
+
+	/**
+	 * Write to a buffer
+	 * @param args
+	 */
+	writeBuffer(): Promise<void>;
 
 	/**
 	 * write to a stream
